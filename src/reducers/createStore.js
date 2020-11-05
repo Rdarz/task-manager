@@ -7,7 +7,9 @@ import { routerMiddleware } from 'connected-react-router'
 import createRootReducer from './index'
 
 import { loadState, saveState } from './middleware/localStorageLoad'
-export const history = createBrowserHistory({ basename: '/task-manager' })
+export const history = createBrowserHistory({
+  basename: process.env.PUBLIC_URL
+})
 
 export default function configureStore(preloadedState = {}) {
   preloadedState = loadState()

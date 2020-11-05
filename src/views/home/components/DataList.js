@@ -45,13 +45,14 @@ const DataList = ({
     if (value) {
       setPriority(value)
       setUserTaskData(
-        taskData.filter((item) =>
-          dateOption
-            ? item.priority === value &&
-              new Date(item.created_on).toLocaleDateString('en-IN') ===
-                new Date(dateOption).toLocaleDateString('en-IN')
-            : item.priority === value
-        )
+        taskData &&
+          taskData.filter((item) =>
+            dateOption
+              ? item.priority === value &&
+                new Date(item.created_on).toLocaleDateString('en-IN') ===
+                  new Date(dateOption).toLocaleDateString('en-IN')
+              : item.priority === value
+          )
       )
     } else {
       setPriority(null)
@@ -61,27 +62,32 @@ const DataList = ({
     if (value) {
       setDate(value)
       setUserTaskData(
-        taskData.filter((item) =>
-          priorityOption
-            ? new Date(item.created_on).toLocaleDateString('en-IN') ===
-                new Date(value).toLocaleDateString('en-IN') &&
-              item.priority === priorityOption
-            : new Date(item.created_on).toLocaleDateString('en-IN') ===
-              new Date(value).toLocaleDateString('en-IN')
-        )
+        taskData &&
+          taskData.filter((item) =>
+            priorityOption
+              ? new Date(item.created_on).toLocaleDateString('en-IN') ===
+                  new Date(value).toLocaleDateString('en-IN') &&
+                item.priority === priorityOption
+              : new Date(item.created_on).toLocaleDateString('en-IN') ===
+                new Date(value).toLocaleDateString('en-IN')
+          )
       )
     } else {
       setDate(null)
       setUserTaskData(
         priorityOption
-          ? taskData.filter((item) => item.priority === priorityOption)
+          ? taskData &&
+              taskData.filter((item) => item.priority === priorityOption)
           : taskData
       )
     }
   }
-  const sectionPriorityHigh = taskData.filter((item) => item.priority === '1')
-  const sectionPriorityMedium = taskData.filter((item) => item.priority === '2')
-  const sectionPriorityLow = taskData.filter((item) => item.priority === '3')
+  const sectionPriorityHigh =
+    taskData && taskData.filter((item) => item.priority === '1')
+  const sectionPriorityMedium =
+    taskData && taskData.filter((item) => item.priority === '2')
+  const sectionPriorityLow =
+    taskData && taskData.filter((item) => item.priority === '3')
   const onDragStart = (ev, item) => {
     let stringifyObj = JSON.stringify(item)
     ev.dataTransfer.setData('task', stringifyObj)
