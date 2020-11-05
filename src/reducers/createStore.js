@@ -1,22 +1,22 @@
-import { applyMiddleware, compose, createStore } from "redux"
-import thunk from "redux-thunk"
-import { createBrowserHistory } from "history"
+import { applyMiddleware, compose, createStore } from 'redux'
+import thunk from 'redux-thunk'
+import { createBrowserHistory } from 'history'
 
-import { routerMiddleware } from "connected-react-router"
+import { routerMiddleware } from 'connected-react-router'
 
-import createRootReducer from "./index"
+import createRootReducer from './index'
 
-import { loadState, saveState } from "./middleware/localStorageLoad"
-export const history = createBrowserHistory()
+import { loadState, saveState } from './middleware/localStorageLoad'
+export const history = createBrowserHistory({ basename: '/task-manager' })
 
 export default function configureStore(preloadedState = {}) {
   preloadedState = loadState()
 
   let composeEnhancers = compose
 
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === 'development') {
     // enable dev tools for dev evt
-    if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === "function") {
+    if (typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === 'function') {
       composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     }
   }
