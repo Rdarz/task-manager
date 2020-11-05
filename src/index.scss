@@ -1,0 +1,12 @@
+@import 'common/styles/_colors.scss';
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  color: $textColor;
+  font-family: sans-serif;
+}

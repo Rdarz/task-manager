@@ -1,0 +1,14 @@
+@import 'common/styles/_colors.scss';
+
+.react-date-picker {
+  width: 100%;
+  .react-date-picker__wrapper {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
+.pdr-10 {
+  padding-right: 10px;
+}

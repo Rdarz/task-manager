@@ -1,0 +1,140 @@
+@import 'common/styles/_colors.scss';
+@import 'common/styles/_override.scss';
+
+.row {
+  padding: 0;
+  height: 100%;
+  .col-3 {
+    background-color: $bodyBG;
+    &.sectionList {
+      padding: 25px;
+      .section {
+        margin-bottom: 25px;
+        .section-title {
+          margin-bottom: 10px;
+          padding: 10px;
+          color: $lightTextColor;
+          border-bottom: 1px solid $borderColor;
+          .section-list-title {
+            padding-left: 10px;
+          }
+        }
+        .section-list-item {
+          padding: 10px;
+          color: $lightTextColor;
+          cursor: pointer;
+          &.filter {
+            .section-list-title {
+              font-size: 12px;
+              padding-left: 0;
+              padding-bottom: 5px;
+            }
+          }
+          &.active {
+            background-color: $white;
+            border: 1px solid $borderColor;
+          }
+          .section-list-title {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+  .col-9 {
+    &.taskList {
+      padding: 25px;
+      .taskListItemContainer {
+        height: 100%;
+        color: $lightTextColor;
+        font-size: 14px;
+        padding: 0;
+        .boardView {
+          .bsection {
+            height: 80%;
+            border: 1px solid $borderColor;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 12px;
+            color: $lightTextColor;
+            .secHeader {
+              margin-bottom: 20px;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .taskListHeader {
+        padding: 10px 5px;
+        // border-bottom: 1px solid $borderColor;
+      }
+      .button {
+        padding: 10px 20px;
+        border: 1px solid $borderColor;
+        border-radius: 5px;
+        color: $lightTextColor;
+        cursor: pointer;
+        .button-title {
+          padding-left: 10px;
+        }
+      }
+      .taskListItem {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        border: 1px solid $borderColor;
+        padding: 10px 0;
+        .fa-circle {
+          font-size: 10px;
+          padding-right: 10px;
+        }
+        .listOption {
+          .deleteOption,
+          .editOption {
+            cursor: pointer;
+          }
+          span {
+            border: 1px solid $borderColor;
+            border-radius: 2px;
+            padding: 1px 5px;
+            font-size: 14px;
+            margin: 0 5px;
+          }
+        }
+        span {
+          height: fit-content;
+        }
+      }
+    }
+  }
+
+  h1 {
+    background-color: $secondary;
+    color: $white;
+  }
+  .userDetailsBox {
+    width: 33.33%;
+    padding: 5%;
+    display: inline-block;
+    text-align: center;
+  }
+}
+.showLoader {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  .loaderIcon {
+    position: absolute;
+    width: 100px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
